@@ -5,7 +5,7 @@
   "scripts": {
     "dev:all": "concurrently \"pnpm run dev\" \"pnpm run dev:webhook\"",
     "dev": "next dev --turbopack",
-    "dev:webhook": "ngrok http --url=lasting-needlessly-bat.ngrok-free.app 3000",
+    "dev:webhook": "dotenv -e .env.local -- cross-var \"ngrok http --domain=%STATIC_URL% 3000\"",
     "build": "next build",
     "start": "next start",
     "lint": "next lint"
@@ -44,8 +44,10 @@
     "clsx": "^2.1.1",
     "cmdk": "^1.1.1",
     "concurrently": "^9.1.2",
+    "cross-var": "^1.1.0",
     "date-fns": "^4.1.0",
     "dotenv": "^16.5.0",
+    "dotenv-cli": "^8.0.0",
     "drizzle-orm": "^0.43.1",
     "embla-carousel-react": "^8.5.2",
     "input-otp": "^1.4.2",
