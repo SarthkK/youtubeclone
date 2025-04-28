@@ -3,13 +3,17 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
+    "dev:all": "concurrently \"pnpm run dev\" \"pnpm run dev:webhook\"",
     "dev": "next dev --turbopack",
+    "dev:webhook": "ngrok http --url=lasting-needlessly-bat.ngrok-free.app 3000",
     "build": "next build",
     "start": "next start",
     "lint": "next lint"
   },
   "dependencies": {
+    "@clerk/nextjs": "^6.18.0",
     "@hookform/resolvers": "^4.1.3",
+    "@neondatabase/serverless": "^1.0.0",
     "@radix-ui/react-accordion": "^1.2.3",
     "@radix-ui/react-alert-dialog": "^1.1.6",
     "@radix-ui/react-aspect-ratio": "^1.1.2",
@@ -39,7 +43,10 @@
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "cmdk": "^1.1.1",
+    "concurrently": "^9.1.2",
     "date-fns": "^4.1.0",
+    "dotenv": "^16.5.0",
+    "drizzle-orm": "^0.43.1",
     "embla-carousel-react": "^8.5.2",
     "input-otp": "^1.4.2",
     "lucide-react": "^0.485.0",
@@ -63,9 +70,11 @@
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
+    "drizzle-kit": "^0.31.0",
     "eslint": "^9",
     "eslint-config-next": "15.2.4",
     "tailwindcss": "^4",
+    "tsx": "^4.19.3",
     "typescript": "^5"
   }
 }
